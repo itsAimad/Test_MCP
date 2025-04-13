@@ -12,6 +12,9 @@ def ensure_file():
         with open(NOTES_FILE,'w') as f:
             f.write("")
 
+@mcp.tool() # decorator: a design pattern in python that allows a user to add new functionality to an existing object without modifying its structure
+def
+
 
 #
 # # Create an MCP server
