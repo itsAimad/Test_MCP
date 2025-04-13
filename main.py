@@ -5,7 +5,7 @@ import os
 # Create an MCP server
 mcp = FastMCP("AI Notes")
 
-NOTES_FILE = 'notes.txt'
+NOTES_FILE =  os.path.join(os.path.dirname(__file__),"notes.txt")
 
 def ensure_file():
     if not os.path.exists(NOTES_FILE):
@@ -13,9 +13,22 @@ def ensure_file():
             f.write("")
 
 @mcp.tool() # decorator: a design pattern in python that allows a user to add new functionality to an existing object without modifying its structure
-def
+def add_note(message: str) -> str:
+    """
+    Append a new note to the sticky note file.
 
+    Args:
+        message(str): The note content to be added.
+    Returns:
+        str: Confirmation message indicating the note was saved.
 
+    """
+    ensure_file()
+    with open(NOTES_FILE,'a') as f:
+        f.write(message + '\n')
+    return "Note saved!"
+
+# DocString
 #
 # # Create an MCP server
 # mcp = FastMCP("Demo")
